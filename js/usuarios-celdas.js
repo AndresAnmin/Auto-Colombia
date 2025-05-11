@@ -3,6 +3,22 @@ document.addEventListener('DOMContentLoaded', function() {
     let users = loadData('parking_users') || [];
     let cells = loadData('parking_cells') || [];
     const entries = loadData('parking_entries') || [];
+
+    function generateUserId() {
+        if (users.length === 0) return 1;
+        const maxId = Math.max(...users.map(u => u.id));
+        return maxId + 1;
+    }
+
+    function deleteCell(id) {
+        if (confirm('¿Está seguro de que desea eliminar esta celda?')) {
+            cells = cells.filter(c => c.id !== id);
+            saveData('parking_cells', cells);
+            renderCells();
+            showAlert('Celda eliminada exitosamente');
+        }
+    }
+    
     
     // Variables de estado
     let selectedCellId = null;
@@ -29,6 +45,10 @@ document.addEventListener('DOMContentLoaded', function() {
             cellStatus.className = 'cell-status';
             cellStatus.textContent = cell.status === 'available' ? 'Disponible' : 'Ocupada';
             
+            cellDiv.appendChild(cellNumber);
+            cellDiv.appendChild(cellType);
+            cellDiv.appendChild(cellStatus);
+    
             if (cell.status === 'occupied') {
                 const cellPlate = document.createElement('div');
                 cellPlate.textContent = cell.plate;
@@ -36,12 +56,23 @@ document.addEventListener('DOMContentLoaded', function() {
                 cellPlate.style.marginTop = '0.5rem';
                 cellDiv.appendChild(cellPlate);
             }
+    
             
-            cellDiv.appendChild(cellNumber);
-            cellDiv.appendChild(cellType);
-            cellDiv.appendChild(cellStatus);
-            
-            // Seleccionar celda
+            if (cell.status === 'available') {
+                const deleteBtn = document.createElement('button');
+                deleteBtn.textContent = 'Eliminar';
+                deleteBtn.className = 'btn btn-danger btn-sm';
+                deleteBtn.style.marginTop = '0.5rem';
+    
+                deleteBtn.addEventListener('click', function(e) {
+                    e.stopPropagation(); 
+                    deleteCell(cell.id);
+                });
+    
+                cellDiv.appendChild(deleteBtn);
+            }
+    
+           
             cellDiv.addEventListener('click', function() {
                 if (cell.status === 'available') {
                     document.querySelectorAll('.cell').forEach(c => c.classList.remove('selected'));
@@ -55,6 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
             cellsGrid.appendChild(cellDiv);
         });
     }
+    
     
     // Mostrar usuarios en tabla
     function renderUsersTable() {
@@ -172,7 +204,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             // Crear nuevo usuario
             const newUser = {
-                id: Date.now(),
+                id: generateUserId(),
                 name,
                 phone,
                 plate,
@@ -188,28 +220,34 @@ document.addEventListener('DOMContentLoaded', function() {
         resetUserForm();
         renderUsersTable();
     });
+
+    function generateCellId() {
+        if (cells.length === 0) return 1;
+        const maxId = Math.max(...cells.map(c => c.id));
+        return maxId + 1;
+    }
     
     // Formulario de celda
     document.getElementById('cell-form').addEventListener('submit', function(e) {
         e.preventDefault();
-        
+    
         const type = document.getElementById('cell-type').value;
-        
+    
         if (!type) {
             showAlert('Por favor seleccione un tipo de celda', 'danger');
             return;
         }
-        
+    
         const newCell = {
-            id: Date.now(),
+            id: generateCellId(),   
             type,
             status: 'available',
             plate: ''
         };
-        
+    
         cells.push(newCell);
         saveData('parking_cells', cells);
-        
+    
         showAlert('Celda agregada exitosamente');
         document.getElementById('cell-form').reset();
         renderCells();

@@ -69,7 +69,8 @@ document.addEventListener('DOMContentLoaded', function() {
         e.preventDefault();
         
         const plate = entryPlate.value.trim().toUpperCase();
-        const cellId = entryCell.value;
+        const cellId = parseInt(entryCell.value);
+
         
         if (!plate || !cellId) {
             showAlert('Por favor complete todos los campos', 'danger');
