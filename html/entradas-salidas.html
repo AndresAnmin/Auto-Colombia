@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autos Colombia - Entradas/Salidas</title>
+    <link rel="stylesheet" href="/css/entradas-salidas.css">
+</head>
+<body>
+    <header>
+        <h1>Autos Colombia - Entradas y Salidas</h1>
+        <nav>
+            <a href="index.html" class="btn">Inicio</a>
+            <a href="usuarios-celdas.html" class="btn">Usuarios y Celdas</a>
+            <a href="pagos.html" class="btn">Pagos</a>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <section id="search-section">
+            <h2>Buscar Vehículo</h2>
+            <div class="form-group">
+                <label for="plate-search">Placa del vehículo:</label>
+                <div class="search-container">
+                    <input type="text" id="plate-search" placeholder="Ej: ABC123">
+                    <button id="search-btn" class="btn">Buscar</button>
+                </div>
+            </div>
+        </section>
+        
+        <section id="result-section" class="hidden">
+            <h2>Información del Vehículo</h2>
+            <div id="vehicle-info" class="info-container"></div>
+            <button id="register-exit" class="btn btn-success">Registrar Salida</button>
+        </section>
+        
+        <section id="register-entry">
+            <h2>Registrar Entrada</h2>
+            <form id="entry-form">
+                <div class="form-group">
+                    <label for="entry-plate">Placa:</label>
+                    <input type="text" id="entry-plate" required>
+                </div>
+                <div class="form-group">
+                    <label for="entry-cell">Celda asignada:</label>
+                    <select id="entry-cell" required>
+                        <option value="">Seleccione una celda</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn">Registrar Entrada</button>
+            </form>
+        </section>
+        
+        <section id="current-entries">
+            <h2>Vehículos Actualmente en el Parqueadero</h2>
+            <div class="table-container">
+                <table id="entries-table">
+                    <thead>
+                        <tr>
+                            <th>Placa</th>
+                            <th>Celda</th>
+                            <th>Hora de Entrada</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+    
+    
+    
+    <script src="/js/common.js"></script>
+    <script src="/js/entradas-salidas.js"></script>
+</body>
+</html>
