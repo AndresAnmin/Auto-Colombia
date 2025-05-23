@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 <td>${user.vehicleType}</td>
                 <td>${user.plan}</td>
                 <td>
-                    <button class="btn" data-id="${user.id}">Editar</button>
+                    <button class="btn btn-editar" data-id="${user.id}">Editar</button>
                     <button class="btn btn-danger" data-id="${user.id}">Eliminar</button>
                 </td>
             `;
