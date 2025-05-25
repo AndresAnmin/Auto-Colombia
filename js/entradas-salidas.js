@@ -1,15 +1,12 @@
 document.addEventListener('DOMContentLoaded', function () {
 
-    // =============================
     // CARGA DE DATOS DESDE LOCAL STORAGE
-    // =============================
     const users = loadData('parking_users');
     const cells = loadData('parking_cells');
     const entries = loadData('parking_entries');
 
-    // =============================
+
     // REFERENCIAS AL DOM
-    // =============================
     const plateSearch = document.getElementById('plate-search');
     const searchBtn = document.getElementById('search-btn');
     const resultSection = document.getElementById('result-section');

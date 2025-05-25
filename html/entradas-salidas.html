@@ -6,14 +6,21 @@
     <title>Autos Colombia - Entradas/Salidas</title>
     <link rel="stylesheet" href="/css/entradas-salidas.css">
 </head>
+
+<script>
+  if (!localStorage.getItem("userLoggedIn")) {
+    window.location.href = "login.html";
+  }
+</script>
+
 <body>
     <header>
         <h1>Autos Colombia - Entradas y Salidas</h1>
-
         
         <nav>
             <a href="index.html" class="btn">Inicio</a>
             <a href="usuarios-celdas.html" class="btn">Usuarios y Celdas</a>
+            <a href="#" class="btn logout-btn" onclick="logout(); return false;">Cerrar sesión</a>
         </nav>
     </header>
     
@@ -69,10 +76,16 @@
             </div>
         </section>
     </div>
-    
+    <script>
+  function logout() {
+    localStorage.removeItem("userLoggedIn");
+    window.location.href = "login.html";
+  }
+</script>
     
     
     <script src="/js/common.js"></script>
     <script src="/js/entradas-salidas.js"></script>
+    
 </body>
 </html>

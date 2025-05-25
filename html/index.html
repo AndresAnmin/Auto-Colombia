@@ -6,9 +6,17 @@
     <title>Autos Colombia - Parqueadero</title>
     <link rel="stylesheet" href="/css/index.css">
 </head>
+
+<script>
+  if (!localStorage.getItem("userLoggedIn")) {
+    window.location.href = "login.html";
+  }
+</script>
+
 <body>
     <header>
         <h1>Autos Colombia - Sistema de Parqueadero</h1>
+        <a href="#" class="btn logout-btn" onclick="logout(); return false;">Cerrar sesión</a>
     </header>
 
     
@@ -26,7 +34,12 @@
         </div>
         
     </div>
-    
+    <script>
+  function logout() {
+    localStorage.removeItem("userLoggedIn");
+    window.location.href = "login.html";
+  }
+</script>
     
     
     <script src="js/common.js"></script>

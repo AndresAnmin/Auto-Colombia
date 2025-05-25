@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="../css/login.css">
+</head>
+<body>
+
+  <header> 
+    <h1>Autos Colombia - Iniciar Sesión</h1>
+  </header>
+
+  <main>
+  <div class="login-container">
+    <h2>Iniciar Sesión</h2>
+    <form id="loginForm">
+      <input type="text" id="username" placeholder="Usuario" required>
+      <input type="password" id="password" placeholder="Contraseña" required>
+      <button type="submit">Entrar</button>
+      <p id="login-error" style="color: red; display: none;">Credenciales incorrectas</p>
+    </form>
+     <p style="margin-top: 15px; font-size: 14px; color: #555;">
+      <strong>Nota:</strong> Esta aplicación está en desarrollo. Use <em>usuario: admin</em> y <em>contraseña: 1234</em> para iniciar sesión como administrador.
+    </p>
+  </div>
+
+  </main>
+
+  <script src="/js/login.js"></script>
+</body>
+</html>

@@ -6,12 +6,21 @@
     <title>Autos Colombia - Usuarios y Celdas</title>
     <link rel="stylesheet" href="/css/usuarios-celdas.css">
 </head>
+
+<script>
+  if (!localStorage.getItem("userLoggedIn")) {
+    window.location.href = "login.html";
+  }
+</script>
+
 <body>
     <header>
         <h1>Autos Colombia - Usuarios y Celdas</h1>
+        
         <nav>
             <a href="index.html" class="btn">Inicio</a>
             <a href="entradas-salidas.html" class="btn">Entradas y Salidas</a>
+            <a href="#" class="btn logout-btn" onclick="logout(); return false;">Cerrar sesión</a>
         </nav>
     </header>
     
@@ -95,6 +104,13 @@
             </section>
         </div>
     </div>
+
+    <script>
+  function logout() {
+    localStorage.removeItem("userLoggedIn");
+    window.location.href = "login.html";
+  }
+</script>
     
     <script src="/js/common.js"></script>
     <script src="/js/usuarios-celdas.js"></script>

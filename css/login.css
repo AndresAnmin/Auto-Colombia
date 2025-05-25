@@ -1,0 +1,94 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f0f4f8;
+    color: #333;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    background-color: #003366;
+    color: #fff;
+    padding: 40px 20px; /* ligeramente más alto */
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 32px; /* más grande como en index */
+    font-weight: bold;
+}
+
+/* Centrado del contenedor login */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 1000px); /* altura total menos el header */
+    padding: 20px;
+}
+
+/* Contenedor del login */
+.login-container {
+    background-color: #fff;
+    padding: 40px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+
+}
+
+.login-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+/* Título del formulario */
+.login-container h2 {
+    color: #003366;
+    margin-bottom: 20px;
+}
+
+/* Campos de entrada */
+.login-container input {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+/* Botón de login */
+.login-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #003366;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-container button:hover {
+    background-color: #007bff;
+}
+
+/* Mensaje de error */
+#login-error {
+    margin-top: 10px;
+    color: red;
+    display: none;
+}
