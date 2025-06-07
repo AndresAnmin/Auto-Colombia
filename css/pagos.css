@@ -1,0 +1,275 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f4f7fb;
+    color: #333;
+    padding: 20px;
+}
+
+header {
+    background-color: #003366;
+    color: white;
+    padding: 25px 20px;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav .btn {
+    display: inline-block;
+    margin: 0 8px;
+    padding: 8px 15px;
+    background-color: #0055aa;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+}
+
+nav .btn:hover {
+    background-color: #007bff;
+}
+
+.container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+section {
+    background-color: #fff;
+    padding: 25px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+h2 {
+    color: #003366;
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: #0055aa;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* Estilo para el grupo de filtro de placa */
+.filter-plate-group {
+  margin-bottom: 16px;
+}
+
+.filter-plate-inputs {
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+  max-width: 400px;
+}
+
+.filter-plate-inputs .form-control {
+  width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.btn {
+    background-color: #0055aa;
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    margin-right: 8px;
+}
+
+.btn:hover {
+    background-color: #007bff;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.btn-success {
+    background-color: #28a745;
+    
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+.btn-edit {
+    background-color: #ffc107;
+}
+
+.btn-edit:hover {
+    background-color: #e0a800;
+}
+
+
+.tabs {
+    margin-bottom: 15px;
+}
+
+.tab-btn {
+    background-color: #dee2e6;
+    border: none;
+    padding: 10px 15px;
+    margin-right: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+nav {
+    display: flex;
+    width: 100%;
+}
+
+nav .btn.logout-btn {
+    margin-left: auto;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+nav .btn.logout-btn {
+  position: absolute;
+  right: 0;
+}
+
+.tab-btn:hover {
+    background-color: #ced4da;
+}
+
+.tab-btn.active {
+    background-color: #0055aa;
+    color: white;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+table th,
+table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+    vertical-align: middle;
+}
+
+table thead {
+    background-color: #0055aa;
+    color: white;
+}
+
+#payments-table td {
+  vertical-align: middle;
+}
+
+#payments-table .btn {
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 2px;
+  white-space: nowrap;
+}
+
+/* Contenedor inicialmente oculto */
+#payment-info {
+    display: none; /* Oculta el elemento al inicio */
+    background-color: #e9f1ff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border-left: 5px solid #0055aa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-in-out; /* Animación al aparecer */
+}
+
+/* Estilos cuando está visible */
+#payment-info.visible {
+    display: block; /* Muestra el elemento cuando tiene esta clase */
+}
+
+#payments-history {
+    margin-top: 32px;
+}
+
+#payment-info p {
+    margin: 8px 0;
+    line-height: 1.4;
+}
+
+#payment-info strong {
+    color: #0055aa;
+    display: inline-block;
+    min-width: 150px;
+}
+
+/* Animación de aparición */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.btn-clear-container {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}

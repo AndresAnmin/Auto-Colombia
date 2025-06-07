@@ -141,6 +141,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
         document.getElementById('user-submit').textContent = 'Actualizar Usuario';
         document.getElementById('user-cancel').style.display = 'inline-block';
+
+        // Desplazarse al formulario de usuario
+        document.getElementById('user-form').scrollIntoView({ behavior: 'smooth' });
     }
     
     // Cancelar edición

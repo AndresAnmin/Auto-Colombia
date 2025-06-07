@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Autos Colombia - Gestión de Pagos</title>
+    <link rel="stylesheet" href="/css/pagos.css" />
+  </head>
+
+  <script>
+    if (!localStorage.getItem("userLoggedIn")) {
+      window.location.href = "login.html";
+    }
+  </script>
+
+  <body>
+    <header>
+      <h1>Autos Colombia - Gestión de Pagos</h1>
+      <nav>
+        <a href="index.html" class="btn">Inicio</a>
+        <a href="entradas-salidas.html" class="btn">Entradas y Salidas</a>
+        <a href="usuarios-celdas.html" class="btn">Usuarios y Celdas</a>
+        <a href="#" class="btn logout-btn" onclick="logout(); return false;"
+          >Cerrar sesión</a
+        >
+      </nav>
+    </header>
+
+    <div class="container">
+      <section id="current-payment">
+        <h2>Registrar Pago</h2>
+        <div id="payment-info"></div>
+
+        <form id="payment-form">
+          <div class="form-group filter-plate-group">
+            <label for="search-plate">Buscar por placa:</label>
+            <div class="filter-plate-inputs">
+              <input
+                type="text"
+                id="search-plate"
+                class="form-control"
+                placeholder="Ingrese placa"/>
+
+              <button
+                type="button"
+                id="filter-plate-btn"
+                class="btn btn-primary">Filtrar</button>
+
+              <button
+                type="button"
+                id="clear-filter-btn"
+                class="btn btn-secondary">Limpiar</button>
+            </div>
+          </div>
+
+          <input type="hidden" id="payment-plate" />
+          <div class="form-group">
+            <label for="payment-amount">Valor a pagar:</label>
+            <input type="number" id="payment-amount" placeholder="Valor a pagar" readonly />
+          </div>
+
+          <div class="form-group">
+            <label for="payment-method">Método de pago:</label>
+            <select id="payment-method" required>
+              <option value="">Seleccione un método</option>
+              <option value="efectivo">Efectivo</option>
+              <option value="tarjeta">Tarjeta</option>
+              <option value="transferencia">Transferencia</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-success">Registrar Pago</button>
+        </form>
+      </section>
+
+      <section id="payments-history">
+        <h2>Historial de Pagos</h2>
+
+        <div class="tabs">
+          <button class="tab-btn active" data-tab="all">Todos</button>
+          <button class="tab-btn" data-tab="paid">Pagados</button>
+          <button class="tab-btn" data-tab="pending">Pendientes</button>
+        </div>
+
+        <table id="payments-table">
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Placa</th>
+              <th>Nombre</th>
+              <th>Valor</th>
+              <th>Estado</th>
+              <th>Método</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+
+      <!-- Modal de edición de pago -->
+      <div id="edit-payment-modal" class="modal" style="display: none">
+        <div class="modal-content">
+
+          <span class="close" id="close-edit-modal">&times;</span>
+          <h2>Editar Pago</h2>
+
+          <form id="edit-payment-form">
+            <input type="hidden" id="edit-payment-id" />
+
+            <div class="form-group">
+              <label for="edit-payment-plate">Placa:</label>
+              <input type="text" id="edit-payment-plate" readonly />
+            </div>
+
+            <div class="form-group">
+              <label for="edit-payment-amount">Valor:</label>
+              <input type="number" id="edit-payment-amount" />
+            </div>
+            
+            <div class="form-group">
+              <label for="edit-payment-method">Método:</label>
+              <select id="edit-payment-method">
+                <option value="efectivo">Efectivo</option>
+                <option value="tarjeta">Tarjeta</option>
+                <option value="transferencia">Transferencia</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn btn-success">Guardar Cambios</button>
+
+            <button
+              type="button"
+              class="btn btn-secondary"
+              id="cancel-edit-modal">Cancelar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function logout() {
+        localStorage.removeItem("userLoggedIn");
+        window.location.href = "login.html";
+      }
+    </script>
+
+    <script src="/js/common.js"></script>
+    <script src="/js/pagos.js"></script>
+  </body>
+</html>

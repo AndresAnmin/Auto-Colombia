@@ -184,6 +184,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 saveData('parking_cells', cells);
             }
 
+            // Guardar la placa para el pago y redirigir
+            localStorage.setItem('current_payment_plate', plate);
+            window.location.href = 'pagos.html';
+            return; // Detener ejecución aquí
+
             // ✅ Ocultar sección de resultados
             resultSection.classList.add('hidden');
 

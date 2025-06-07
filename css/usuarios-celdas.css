@@ -125,10 +125,6 @@ select {
     margin-right: 8px;
 }
 
-.btn:hover {
-    background-color: #007bff;
-}
-
 .btn-danger {
     background-color: #dc3545;
 }
@@ -145,6 +141,15 @@ select {
 .btn-editar:hover
 {
     background-color: #e0a800;
+}
+
+.btn-success {
+    background-color: #28a745;
+    
+}
+
+.btn-success:hover {
+    background-color: #218838;
 }
 
 table {
