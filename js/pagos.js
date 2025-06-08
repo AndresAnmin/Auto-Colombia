@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (lastEntry.entryTime && lastEntry.exitTime) {
             const entryTime = new Date(lastEntry.entryTime);
             const exitTime = new Date(lastEntry.exitTime);
-            hours = Math.ceil((exitTime - entryTime) / (1000 * 60 * 60));
+            hours = Math.ceil((exitTime - entryTime) / (50 * 60 * 60));
         }
 
         if (pendingPayment) {
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <p><strong>Placa:</strong> ${user.plate}</p>
             <p><strong>Dueño:</strong> ${user.name}</p>
             <p><strong>Plan:</strong> ${user.plan}</p>
-            <p><strong>Tiempo estacionado:</strong> ${hours} horas</p>
+            ${user.plan !== 'mensual' ? `<p><strong>Tiempo estacionado:</strong> ${hours} horas</p>` : ''}
         `;
 
         paymentInfo.classList.add('visible');
@@ -155,6 +155,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 payments.push(payment);
             }
             saveData('parking_payments', payments);
+            
             showAlert('Pago registrado exitosamente');
         }
 
